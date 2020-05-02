@@ -18,11 +18,17 @@ namespace CRUDExersise.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult List()
+        //public IActionResult List()
+        //{
+        //    //EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
+        //    //employeeListViewModel = _employeeRepository.AllEmployees;
+        //    return View(_employeeRepository.AllEmployees());
+        //}
+
+        public IActionResult List(string name = null)
         {
-            //EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
-            //employeeListViewModel = _employeeRepository.AllEmployees;
-            return View(_employeeRepository.AllEmployees);
+            ViewBag.SearchString = name;
+            return View(_employeeRepository.GetEmployeeByName(name));
         }
 
         public IActionResult Details(int id)
