@@ -10,5 +10,6 @@ namespace CRUDExersise.Models
         IEnumerable<Employee> AllEmployees();
         Employee GetEmployeeById(int EmpID);
         IEnumerable<Employee> GetEmployeeByName(string name);
+        Employee Update(Employee updatedEmployee);
     }
 }

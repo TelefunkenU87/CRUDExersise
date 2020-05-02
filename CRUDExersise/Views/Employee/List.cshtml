@@ -34,12 +34,13 @@
                asp-route-id="@employee.EmpID">
                 <i class="fa fa-search-plus"></i>
             </a>
-            @*<a class="btn btn-lg"
-               asp-page="./Edit"
-               asp-route-restaurantId="@Model.Id">
+            <a class="btn btn-lg"
+               asp-controller="Employee"
+               asp-action="Edit"
+               asp-route-id="@employee.EmpID">
                 <i class="fa fa-edit"></i>
             </a>
-            <a class="btn btn-lg"
+            @*<a class="btn btn-lg"
                asp-page="./Delete"
                asp-route-restaurantId="@Model.Id">
                 <i class="fa fa-trash"></i>

@@ -45,5 +45,20 @@ namespace CRUDExersise.Models
         {
             return _employees.Where(e => string.IsNullOrEmpty(name) || e.LastName.StartsWith(name) || e.FirstName.StartsWith(name));
         }
+
+        public Employee Update(Employee updatedEmployee)
+        {
+            var employee = _employees.SingleOrDefault(e => e.EmpID == updatedEmployee.EmpID);
+            if(employee != null)
+            {
+                employee.EmailAlias = updatedEmployee.EmailAlias;
+                employee.LastName = updatedEmployee.LastName;
+                employee.FirstName = updatedEmployee.FirstName;
+                employee.MiddleName = updatedEmployee.MiddleName;
+                employee.Office = updatedEmployee.Office;
+                employee.Region = updatedEmployee.Region;
+            }
+            return employee;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 @model Employee
 
-<h2>@Model.LastName, @Model.FirstName</h2>
+<h2>@Model.LastName, @Model.FirstName @Model.MiddleName</h2>
 
 <div>
     Employee Id: @Model.EmpID
@@ -15,3 +15,10 @@
 <div>
     Region: @Model.Region
 </div>
+
+@if(ViewBag.Message != null)
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<a asp-controller="Employee" asp-action="List" class="btn btn-outline-primary">Return to All Employees'</a>

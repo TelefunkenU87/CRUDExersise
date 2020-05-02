@@ -25,7 +25,8 @@ namespace CRUDExersise
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IEmployeeRepository, MockEmployeeRepository>();
+            //services.AddScoped<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
