@@ -28,6 +28,10 @@ namespace CRUDExersise.Controllers
 
         public IActionResult List(string name = null)
         {
+            if (TempData["Message"] != null)
+            {
+                ViewBag.Message = TempData["Message"].ToString();
+            }
             ViewBag.SearchString = name;
             return View(_employeeRepository.GetEmployeeByName(name));
         }
@@ -46,10 +50,18 @@ namespace CRUDExersise.Controllers
             return View(employee);
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int? id)
         {
-            var employee = _employeeRepository.GetEmployeeById(id);
-            if(employee == null)
+            var employee = new Employee();
+            if (id.HasValue)
+            {
+                employee = _employeeRepository.GetEmployeeById(id.Value);
+            }
+            //else
+            //{
+            //    var employee = new Employee();
+            //}
+            if (employee == null)
             {
                 return NotFound();
             }
@@ -59,9 +71,42 @@ namespace CRUDExersise.Controllers
         [HttpPost]
         public IActionResult Edit(Employee updatedEmployee)
         {
-            var employee = _employeeRepository.Update(updatedEmployee);
+            int Id = 0;
+            if (updatedEmployee.EmpID > 0)
+            {
+                var employee = _employeeRepository.Update(updatedEmployee);
+                Id = employee.EmpID;
+            }
+            else
+            {
+                var employee = _employeeRepository.Add(updatedEmployee);
+                Id = employee.EmpID;
+            }
             TempData["Message"] = "Employee data saved";
-            return RedirectToAction("Details", new { id = employee.EmpID });
+            return RedirectToAction("Details", new { id = Id });
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            var employee = _employeeRepository.GetEmployeeById(Id);
+            if(employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeleteConfirm(int Id)
+        {
+            var employee = _employeeRepository.Delete(Id);
+            if(employee == null)
+            {
+                return NotFound();
+            }
+            TempData["Message"] = $"{employee.LastName}, {employee.FirstName} was successfully deleted";
+            return RedirectToAction("List");
         }
     }
 }
