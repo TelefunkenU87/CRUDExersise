@@ -9,7 +9,7 @@ namespace CRUDExersise.Models
 {
     public class Employee
     {
-        public int EmpID { get; set; }
+        public int EmployeeId { get; set; }
 
         [Display(Name = "Email Alias")]
         public string EmailAlias { get; set; }

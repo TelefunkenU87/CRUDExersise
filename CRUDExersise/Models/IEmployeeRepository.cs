@@ -13,5 +13,6 @@ namespace CRUDExersise.Models
         Employee Update(Employee updatedEmployee);
         Employee Add(Employee newEmployee);
         Employee Delete(int EmpID);
+        int Commit();
     }
 }

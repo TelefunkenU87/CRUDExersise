@@ -72,16 +72,19 @@ namespace CRUDExersise.Controllers
         public IActionResult Edit(Employee updatedEmployee)
         {
             int Id = 0;
-            if (updatedEmployee.EmpID > 0)
+            if (updatedEmployee.EmployeeId > 0)
             {
                 var employee = _employeeRepository.Update(updatedEmployee);
-                Id = employee.EmpID;
+                _employeeRepository.Commit();
+                Id = employee.EmployeeId;
             }
             else
             {
                 var employee = _employeeRepository.Add(updatedEmployee);
-                Id = employee.EmpID;
+                _employeeRepository.Commit();
+                Id = employee.EmployeeId;
             }
+            //_employeeRepository.Commit();
             TempData["Message"] = "Employee data saved";
             return RedirectToAction("Details", new { id = Id });
         }
@@ -101,6 +104,8 @@ namespace CRUDExersise.Controllers
         public IActionResult DeleteConfirm(int Id)
         {
             var employee = _employeeRepository.Delete(Id);
+            _employeeRepository.Commit();
+
             if(employee == null)
             {
                 return NotFound();
