@@ -15,6 +15,7 @@ namespace CRUDExersise.Models
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

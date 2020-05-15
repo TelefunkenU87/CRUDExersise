@@ -1,10 +1,10 @@
 ﻿
-@model IEnumerable<Employee>
+@model IEnumerable<Assignment>
 @{
-    ViewData["Title"] = "Employees";
+    ViewData["Title"] = "Assignments";
 }
 
-<h1>Employees</h1>
+<h1>Assignments</h1>
 
 <form asp-action="List" method="get">
     <div class="form-group">
@@ -24,38 +24,38 @@
     <div class="alert alert-info">@ViewBag.Message</div>
 }
 
-<a asp-controller="Employee" asp-action="Edit" class="btn btn-primary">Add New Employee</a>
+@*<a asp-controller="Assignment" asp-action="Edit" class="btn btn-primary">Add New Assignment</a>*@
 
-@foreach (var employee in Model)
+@foreach (var assignment in Model)
 {
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">@employee.LastName, @employee.FirstName</h3>
-            <span>Office: @employee.Office</span>
-            <span>Region: @employee.Region</span>
+            <h3 class="card-title">@assignment.ClientName</h3>
+            <span>Start Date: @assignment.StartDate</span>
+            <span>End Date: @assignment.EndDate</span>
         </div>
-        <div class="card-footer">
+        @*<div class="card-footer">
             <a class="btn btn-lg"
-               asp-controller="Employee"
+               asp-controller="Assignment"
                asp-action="Details"
-               asp-route-id="@employee.EmployeeId">
+               asp-route-id="@assignment.AssignmentId">
                 <i class="fa fa-search-plus"></i>
             </a>
             <a class="btn btn-lg"
-               asp-controller="Employee"
+               asp-controller="Assignment"
                asp-action="Edit"
-               asp-route-id="@employee.EmployeeId">
+               asp-route-id="@assignment.AssignmentId">
                 <i class="fa fa-edit"></i>
             </a>
             <a class="btn btn-lg"
-               asp-controller="Employee"
+               asp-controller="Assignment"
                asp-action="Delete"
-               asp-route-id="@employee.EmployeeId">
+               asp-route-id="@assignment.AssignmentId">
                 <i class="fa fa-trash"></i>
             </a>
-        </div>
+        </div>*@
 
     </div>
 }
 
-<a asp-controller="Employee" asp-action="Edit" class="btn btn-primary">Add New Employee</a>
+@*<a asp-controller="Assignment" asp-action="Edit" class="btn btn-primary">Add New Assignment</a>*@

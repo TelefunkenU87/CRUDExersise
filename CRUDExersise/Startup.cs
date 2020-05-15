@@ -33,6 +33,7 @@ namespace CRUDExersise
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddSingleton<IAssignmentRepository, MockAssignmentRepository>();
 
             services.AddHttpContextAccessor();
             services.AddControllersWithViews();
