@@ -1,0 +1,11 @@
+﻿
+@model Client
+
+<h2>Delete!</h2>
+<div class="alert alert-danger">
+    Are you sure you want to delete @Model.ClientName?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes!</button>
+    <a asp-controller="Client" asp-action="List" class="btn btn-outline-primary">Cancel</a>
+</form>

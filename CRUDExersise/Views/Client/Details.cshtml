@@ -6,3 +6,10 @@
 <div>
     Client Id: @Model.ClientId
 </div>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<a asp-controller="Client" asp-action="List" class="btn btn-outline-primary">Return to All Clients</a>

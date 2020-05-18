@@ -24,7 +24,7 @@
     <div class="alert alert-info">@ViewBag.Message</div>
 }
 
-@*<a asp-controller="Assignment" asp-action="Edit" class="btn btn-primary">Add New Client</a>*@
+<a asp-controller="Client" asp-action="Edit" class="btn btn-primary">Add New Client</a>
 
 @foreach (var client in Model)
 {
@@ -39,7 +39,7 @@
                asp-route-id="@client.ClientId">
                 <i class="fa fa-search-plus"></i>
             </a>
-            @*<a class="btn btn-lg"
+            <a class="btn btn-lg"
            asp-controller="Client"
            asp-action="Edit"
            asp-route-id="@client.ClientId">
@@ -50,10 +50,10 @@
            asp-action="Delete"
            asp-route-id="@client.ClientId">
             <i class="fa fa-trash"></i>
-        </a>*@
+        </a>
         </div>
 
     </div>
 }
 
-@*<a asp-controller="Client" asp-action="Edit" class="btn btn-primary">Add New Client</a>*@
+<a asp-controller="Client" asp-action="Edit" class="btn btn-primary">Add New Client</a>
