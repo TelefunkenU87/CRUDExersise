@@ -33,7 +33,7 @@ namespace CRUDExersise.Models
             return newClient;
         }
 
-        public IEnumerable<Client> AllClients()
+        public IEnumerable<Client> GetAllClients()
         {
             return _clients;
         }

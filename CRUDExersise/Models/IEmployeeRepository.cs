@@ -7,7 +7,7 @@ namespace CRUDExersise.Models
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> AllEmployees();
+        IEnumerable<Employee> GetAllEmployees();
         Employee GetEmployeeById(int EmpID);
         IEnumerable<Employee> GetEmployeeByName(string name);
         Employee Update(Employee updatedEmployee);

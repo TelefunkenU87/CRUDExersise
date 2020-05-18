@@ -23,16 +23,11 @@ namespace CRUDExersise.Models
             return newEmployee;
         }
 
-        public IEnumerable<Employee> AllEmployees()
-        {
-            return _appDbContext.Employees;
-        }
-
         public int Commit()
         {
             return _appDbContext.SaveChanges();
         }
-
+        
         public Employee Delete(int EmpID)
         {
             var employee = GetEmployeeById(EmpID);
@@ -41,6 +36,10 @@ namespace CRUDExersise.Models
                 _appDbContext.Remove(employee);
             }
             return employee;
+        }
+        public IEnumerable<Employee> GetAllEmployees()
+        {
+            return _appDbContext.Employees;
         }
 
         public Employee GetEmployeeById(int EmpID)

@@ -34,19 +34,24 @@ namespace CRUDExersise.Models
             return newEmployee;
         }
 
-        public IEnumerable<Employee> AllEmployees()
+        public int Commit()
         {
-            return _employees;
+            return 0;
         }
 
         public Employee Delete(int employeeId)
         {
             var employee = _employees.FirstOrDefault(e => e.EmployeeId == employeeId);
-            if(employee != null)
+            if (employee != null)
             {
                 _employees.Remove(employee);
             }
             return employee;
+        }
+
+        public IEnumerable<Employee> GetAllEmployees()
+        {
+            return _employees;
         }
 
         public Employee GetEmployeeById(int employeeId)
@@ -72,11 +77,6 @@ namespace CRUDExersise.Models
                 employee.Region = updatedEmployee.Region;
             }
             return employee;
-        }
-
-        public int Commit()
-        {
-            return 0;
         }
     }
 }

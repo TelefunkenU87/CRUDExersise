@@ -9,6 +9,10 @@ namespace CRUDExersise.Models
 {
     public class Employee
     {
+        public Employee()
+        {
+            Assignments = new List<Assignment>();
+        }
         public int EmployeeId { get; set; }
 
         [Display(Name = "Email Alias")]
@@ -28,5 +32,6 @@ namespace CRUDExersise.Models
 
         [Display(Name = "Region")]
         public string Region { get; set; }
+        public List<Assignment> Assignments { get; set; }
     }
 }

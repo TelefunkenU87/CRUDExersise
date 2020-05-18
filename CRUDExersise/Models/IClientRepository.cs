@@ -7,8 +7,8 @@ namespace CRUDExersise.Models
 {
     public interface IClientRepository
     {
-        IEnumerable<Client> AllClients();
-        Client GetClientById(int assignmentId);
+        IEnumerable<Client> GetAllClients();
+        Client GetClientById(int clientId);
         IEnumerable<Client> GetClientsByName(string name);
         Client Update(Client updatedClient);
         Client Add(Client newClient);
