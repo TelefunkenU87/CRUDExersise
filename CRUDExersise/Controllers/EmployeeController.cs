@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CRUDExersise.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;

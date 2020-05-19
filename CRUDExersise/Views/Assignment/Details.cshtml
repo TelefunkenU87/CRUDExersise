@@ -1,0 +1,35 @@
+﻿
+@model Assignment
+@{
+    ViewData["Title"] = "Assignment Details";
+}
+
+<h1>Details</h1>
+
+<h2>Client: @Model.Client.ClientName</h2>
+
+<h3>Assigned Employee: @Model.Employee.LastName, @Model.Employee.FirstName</h3>
+
+<a asp-controller="Assignment" asp-action="List" class="btn btn-primary">Return to List</a>
+
+<div>
+    Role: @Model.Role
+</div>
+<div>
+    Start Date: @Model.StartDate
+    End Date: @Model.EndDate
+</div>
+<div>
+    Employee Id: @Model.Employee.EmployeeId
+</div>
+<div>
+    Email: @Model.Employee.EmailAlias@@CompanyEmail.com
+</div>
+<div>
+    Office: @Model.Employee.Office
+</div>
+<div>
+    Region: @Model.Employee.Region
+</div>
+
+<a asp-controller="Assignment" asp-action="List" class="btn btn-primary">Return to List</a>

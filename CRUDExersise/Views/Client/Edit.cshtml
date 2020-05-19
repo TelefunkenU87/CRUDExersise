@@ -1,14 +1,17 @@
 ﻿
 @model Client
+@{
+    ViewData["Title"] = "Edit Client";
+}
 
-    <h1>Editing @Model.ClientName</h1>
+<h1>Editing @Model.ClientName</h1>
 
 <form method="post">
-    
+
     <input type="hidden" asp-for=@Model.ClientId />
     <div class="form-group">
         <label asp-for=@Model.ClientName></label>
-        <input asp-for=@Model.ClientName class="form-control"/>
+        <input asp-for=@Model.ClientName class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

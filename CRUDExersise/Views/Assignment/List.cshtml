@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<Assignment>
+@{ 
+    ViewData["Title"] = "Assignments";
+}
+
+<h1>Assignments</h1>
+
+@foreach (var assignment in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <p>Client Id: @assignment.ClientId</p>
+            <p>Employee Id: @assignment.EmployeeId</p>
+            <p>Role: @assignment.Role</p>
+            <p>Start Date: @assignment.StartDate</p>
+            <p>End Date: @assignment.EndDate</p>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-lg"
+               asp-controller="Assignment"
+               asp-action="Details"
+               asp-route-clientId="@assignment.ClientId"
+               asp-route-employeeId="@assignment.EmployeeId">
+                <i class="fa fa-search-plus"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-controller="Assignment"
+               asp-action="Edit"
+               asp-route-clientId="@assignment.ClientId"
+               asp-route-employeeId="@assignment.EmployeeId">
+                <i class="fa fa-edit"></i>
+            </a>
+        </div>
+    </div>
+}

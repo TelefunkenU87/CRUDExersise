@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDExersise.Controllers
 {
+    //[Authorize]
     public class ClientController : Controller
     {
         private readonly IClientRepository _clientRepository;

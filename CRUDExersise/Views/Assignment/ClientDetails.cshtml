@@ -1,0 +1,32 @@
+﻿
+@model IList<Assignment>
+@{
+    ViewData["Title"] = "Employees' Assigned to Clients";
+}
+
+<h1>Employees' Assigned to @Model[0].Client.ClientName</h1>
+
+<a asp-controller="Client" asp-action="Details" asp-route-id="@Model[0].ClientId" class="btn btn-primary">
+    Client Detail
+</a>
+
+@foreach (var assignment in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">@assignment.Employee.LastName, @assignment.Employee.FirstName</h3>
+            <p class="card-text">Role: @assignment.Role</p>
+            <p class="card-text">Start Date: @assignment.StartDate</p>
+            <p class="card-text">End Date: @assignment.EndDate</p>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-lg"
+               asp-controller="Employee"
+               asp-action="Details"
+               asp-route-id="@assignment.Employee.EmployeeId">
+                <i class="fa fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+}
+

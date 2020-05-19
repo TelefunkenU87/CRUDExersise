@@ -40,17 +40,23 @@
                 <i class="fa fa-search-plus"></i>
             </a>
             <a class="btn btn-lg"
-           asp-controller="Client"
-           asp-action="Edit"
-           asp-route-id="@client.ClientId">
-            <i class="fa fa-edit"></i>
-        </a>
-        <a class="btn btn-lg"
-           asp-controller="Client"
-           asp-action="Delete"
-           asp-route-id="@client.ClientId">
-            <i class="fa fa-trash"></i>
-        </a>
+               asp-controller="Client"
+               asp-action="Edit"
+               asp-route-id="@client.ClientId">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-controller="Client"
+               asp-action="Delete"
+               asp-route-id="@client.ClientId">
+                <i class="fa fa-trash"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-controller="Assignment"
+               asp-action="ClientDetails"
+               asp-route-id="@client.ClientId">
+                <i class="fa fa-search-plus"></i>
+            </a>
         </div>
 
     </div>
