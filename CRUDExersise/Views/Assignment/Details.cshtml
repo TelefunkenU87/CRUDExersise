@@ -8,7 +8,7 @@
 
 <h2>Client: @Model.Client.ClientName</h2>
 
-<h3>Assigned Employee: @Model.Employee.LastName, @Model.Employee.FirstName</h3>
+<h3>Assigned Employee: @Model.Employee.GetFullName()</h3>
 
 <a asp-controller="Assignment" asp-action="List" class="btn btn-primary">Return to List</a>
 

@@ -33,5 +33,15 @@ namespace CRUDExersise.Models
         [Display(Name = "Region")]
         public string Region { get; set; }
         public List<Assignment> Assignments { get; set; }
+
+        public string GetFullName()
+        {
+            var FullName = $"{LastName}, {FirstName}";
+            if (MiddleName != null)
+            {
+                FullName += $" {MiddleName}";
+            }
+            return FullName;
+        }
     }
 }

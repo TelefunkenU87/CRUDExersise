@@ -4,7 +4,7 @@
     ViewData["Title"] = "Employee Details";
 }
 
-<h2>@Model.LastName, @Model.FirstName @Model.MiddleName</h2>
+<h2>@Model.GetFullName()</h2>
 
 <div>
     Employee Id: @Model.EmployeeId

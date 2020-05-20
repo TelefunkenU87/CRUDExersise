@@ -4,7 +4,7 @@
     ViewData["Title"] = "Clients Assigned to Employee";
 }
 
-    <h1>Clients Assigned to @Model[0].Employee.LastName, @Model[0].Employee.FirstName</h1>
+    <h1>Clients Assigned to @Model[0].Employee.GetFullName()</h1>
 
     <a asp-controller="Employee" asp-action="Details" asp-route-id="@Model[0].EmployeeId" class="btn btn-primary">
         Employee Detail

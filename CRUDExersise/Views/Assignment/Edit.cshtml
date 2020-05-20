@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit Assignment";
 }
 
-<h1>Editing Assignment of @Model.Employee.LastName, @Model.Employee.FirstName to @Model.Client.ClientName</h1>
+<h1>Editing Assignment of @Model.Employee.GetFullName() to @Model.Client.ClientName</h1>
 
 <form method="post">
 

@@ -14,7 +14,7 @@
 {
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">@assignment.Employee.LastName, @assignment.Employee.FirstName</h3>
+            <h3 class="card-title">@assignment.Employee.GetFullName()</h3>
             <p class="card-text">Role: @assignment.Role</p>
             <p class="card-text">Start Date: @assignment.StartDate</p>
             <p class="card-text">End Date: @assignment.EndDate</p>
