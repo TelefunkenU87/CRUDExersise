@@ -86,10 +86,11 @@ namespace CRUDExersise.Models
                 Region = "North"
             });
 
-            modelBuilder.Entity<Assignment>().HasKey(a => new { a.EmployeeId, a.ClientId });
+            //modelBuilder.Entity<Assignment>().HasKey(a => new { a.EmployeeId, a.ClientId });
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 1,
                 EmployeeId = 1,
                 ClientId = 1,
                 Role = "Senior Dev",
@@ -99,6 +100,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 2,
                 EmployeeId = 1,
                 ClientId = 2,
                 Role = "Senior Dev",
@@ -108,6 +110,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 3,
                 EmployeeId = 2,
                 ClientId = 1,
                 Role = "Junior Dev",
@@ -117,6 +120,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 4,
                 EmployeeId = 2,
                 ClientId = 3,
                 Role = "Senior Dev",
@@ -126,6 +130,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 5,
                 EmployeeId = 3,
                 ClientId = 1,
                 Role = "Manager",
@@ -135,6 +140,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 6,
                 EmployeeId = 3,
                 ClientId = 2,
                 Role = "Manager",
@@ -144,6 +150,7 @@ namespace CRUDExersise.Models
 
             modelBuilder.Entity<Assignment>().HasData(new Assignment
             {
+                AssignmentId = 7,
                 EmployeeId = 3,
                 ClientId = 3,
                 Role = "Manager",

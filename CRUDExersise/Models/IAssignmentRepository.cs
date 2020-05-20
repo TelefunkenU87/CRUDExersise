@@ -9,12 +9,12 @@ namespace CRUDExersise.Models
     public interface IAssignmentRepository
     {
         IEnumerable<Assignment> GetAllAssignments();
-        Assignment GetAssignment(int clientId, int employeeId);
+        Assignment GetAssignment(int assignmentId);
         List<Assignment> GetAssignmentsByClientId(int clientId);
         List<Assignment> GetAssignmentsByEmployeeId(int employeeId);
         Assignment Update(Assignment updatedAssignment);
         Assignment Add(Assignment newAssignment);
-        Assignment Delete(int clientId, int employeeId);
+        Assignment Delete(int assignmentId);
         int Commit();
     }
 }

@@ -12,11 +12,11 @@ namespace CRUDExersise.Models
         {
             _assignments = new List<Assignment>()
             {
-                new Assignment { ClientId = 1, EmployeeId = 1, Role = "Lead", StartDate = new DateTime(2018, 01, 01), EndDate = new DateTime(2020, 05, 15) },
-                new Assignment { ClientId = 2, EmployeeId = 2, Role = "Sales", StartDate = new DateTime(2018, 04, 05), EndDate = new DateTime(2020, 05, 15) },
-                new Assignment { ClientId = 3, EmployeeId = 3, Role = "Shipping", StartDate = new DateTime(2018, 07, 10), EndDate = new DateTime(2020, 05, 15) },
-                new Assignment { ClientId = 4, EmployeeId = 4, Role = "Customer Relations", StartDate = new DateTime(2018, 10, 15), EndDate = new DateTime(2020, 05, 15) },
-                new Assignment { ClientId = 5, EmployeeId = 5, Role = "Legal", StartDate = new DateTime(2018, 12, 20), EndDate = new DateTime(2020, 05, 15)}
+                new Assignment { AssignmentId = 1, ClientId = 1, EmployeeId = 1, Role = "Lead", StartDate = new DateTime(2018, 01, 01), EndDate = new DateTime(2020, 05, 15) },
+                new Assignment { AssignmentId = 2, ClientId = 2, EmployeeId = 2, Role = "Sales", StartDate = new DateTime(2018, 04, 05), EndDate = new DateTime(2020, 05, 15) },
+                new Assignment { AssignmentId = 3, ClientId = 3, EmployeeId = 3, Role = "Shipping", StartDate = new DateTime(2018, 07, 10), EndDate = new DateTime(2020, 05, 15) },
+                new Assignment { AssignmentId = 4, ClientId = 4, EmployeeId = 4, Role = "Customer Relations", StartDate = new DateTime(2018, 10, 15), EndDate = new DateTime(2020, 05, 15) },
+                new Assignment { AssignmentId = 5, ClientId = 5, EmployeeId = 5, Role = "Legal", StartDate = new DateTime(2018, 12, 20), EndDate = new DateTime(2020, 05, 15)}
             };
         }
 
@@ -31,9 +31,9 @@ namespace CRUDExersise.Models
             return 0;
         }
 
-        public Assignment Delete(int clientId, int employeeId)
+        public Assignment Delete(int assignmentId)
         {
-            var assignment = _assignments.FirstOrDefault(a => a.ClientId == clientId && a.EmployeeId == employeeId);
+            var assignment = _assignments.FirstOrDefault(a => a.AssignmentId == assignmentId);
             if (assignment != null)
             {
                 _assignments.Remove(assignment);
@@ -46,9 +46,9 @@ namespace CRUDExersise.Models
             return _assignments;
         }
 
-        public Assignment GetAssignment(int clientId, int employeeId)
+        public Assignment GetAssignment(int assignmentId)
         {
-            return _assignments.SingleOrDefault(a => a.ClientId == clientId && a.EmployeeId == employeeId);
+            return _assignments.SingleOrDefault(a => a.AssignmentId == assignmentId);
         }
 
         public List<Assignment> GetAssignmentsByEmployeeId(int employeeId)

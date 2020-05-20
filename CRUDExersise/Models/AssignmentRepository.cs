@@ -24,9 +24,9 @@ namespace CRUDExersise.Models
             return _appDbContext.SaveChanges();
         }
 
-        public Assignment Delete(int clientId, int employeeId)
+        public Assignment Delete(int assignmentId)
         {
-            var assignment = GetAssignment(clientId, employeeId);
+            var assignment = GetAssignment(assignmentId);
             if (assignment != null)
             {
                 _appDbContext.Remove(assignment);
@@ -39,9 +39,9 @@ namespace CRUDExersise.Models
             return _appDbContext.Assignments;
         }
 
-        public Assignment GetAssignment(int clientId, int employeeId)
+        public Assignment GetAssignment(int assignmentId)
         {
-            return _appDbContext.Assignments.Find(clientId, employeeId);
+            return _appDbContext.Assignments.Find(assignmentId);
         }
 
         public List<Assignment> GetAssignmentsByClientId(int clientId)

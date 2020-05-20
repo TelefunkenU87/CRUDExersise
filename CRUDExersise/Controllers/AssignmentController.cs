@@ -25,11 +25,11 @@ namespace CRUDExersise.Controllers
             return View(_assignmentRepository.GetAllAssignments());
         }
 
-        public IActionResult Details(int clientId, int employeeId)
+        public IActionResult Details(int id)
         {
-            var assignment = _assignmentRepository.GetAssignment(clientId, employeeId);
-            assignment.Client = _clientRepository.GetClientById(clientId);
-            assignment.Employee = _employeeRepository.GetEmployeeById(employeeId);
+            var assignment = _assignmentRepository.GetAssignment(id);
+            assignment.Client = _clientRepository.GetClientById(assignment.ClientId);
+            assignment.Employee = _employeeRepository.GetEmployeeById(assignment.EmployeeId);
             return View(assignment);
         }
 
@@ -71,16 +71,16 @@ namespace CRUDExersise.Controllers
             }
         }
 
-        public IActionResult Edit(int? clientId, int? employeeId)
+        public IActionResult Edit(int? id)
         {
             var assignment = new Assignment();
-            if (clientId.HasValue && employeeId.HasValue)
+            if (id.HasValue)
             {
-                assignment = _assignmentRepository.GetAssignment(clientId.Value, employeeId.Value);
-                assignment.Client = _clientRepository.GetClientById(clientId.Value);
-                assignment.Employee = _employeeRepository.GetEmployeeById(employeeId.Value);
+                assignment = _assignmentRepository.GetAssignment(id.Value);
+                assignment.Client = _clientRepository.GetClientById(assignment.ClientId);
+                assignment.Employee = _employeeRepository.GetEmployeeById(assignment.EmployeeId);
             }
-            if (clientId == null || employeeId == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -90,21 +90,18 @@ namespace CRUDExersise.Controllers
         [HttpPost]
         public IActionResult Edit(Assignment updatedAssignment)
         {
-            int clientId = 0;
-            int employeeId = 0;
-            if (updatedAssignment.ClientId > 0 && updatedAssignment.EmployeeId > 0)
+            int id = 0;
+            if (updatedAssignment.AssignmentId > 0)
             {
                 var assignment = _assignmentRepository.Update(updatedAssignment);
                 _assignmentRepository.Commit();
-                clientId = assignment.ClientId;
-                employeeId = assignment.EmployeeId;
+                id = assignment.AssignmentId;
             }
             else
             {
                 var assignment = _assignmentRepository.Add(updatedAssignment);
                 _assignmentRepository.Commit();
-                clientId = assignment.ClientId;
-                employeeId = assignment.EmployeeId;
+                id = assignment.AssignmentId;
             }
             //TempData["Message"] = "Assignment data saved";
             return RedirectToAction("List");

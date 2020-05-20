@@ -7,7 +7,7 @@ namespace CRUDExersise.Models
 {
     public class Assignment
     {
-        //public int AssignmentId { get; set; }
+        public int AssignmentId { get; set; }
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
         public int ClientId { get; set; }
