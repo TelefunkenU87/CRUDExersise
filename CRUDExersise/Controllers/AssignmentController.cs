@@ -22,7 +22,13 @@ namespace CRUDExersise.Controllers
         }
         public IActionResult List()
         {
-            return View(_assignmentRepository.GetAllAssignments());
+            var assignments = _assignmentRepository.GetAllAssignments();
+            foreach( var assignment in assignments)
+            {
+                assignment.Client = _clientRepository.GetClientById(assignment.ClientId);
+                assignment.Employee = _employeeRepository.GetEmployeeById(assignment.EmployeeId);
+            }
+            return View(assignments);
         }
 
         public IActionResult Details(int id)
